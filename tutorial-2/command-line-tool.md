@@ -1,4 +1,4 @@
-# Writting your first CWL CommandLineTool document
+# Writing your first CWL CommandLineTool document
 
 ## Goal
 

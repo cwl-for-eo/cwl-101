@@ -17,7 +17,7 @@ This shell script invokes the executables:
 
 ```bash
 --8<--
-101/cwl-101/pan-sharpen.sh
+101/cwl-101/tutorial-3/pan-sharpen.sh
 --8<--
 ```
 

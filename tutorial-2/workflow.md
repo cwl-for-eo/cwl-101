@@ -1,4 +1,4 @@
-# Writting your first CWL Workflow document
+# Writing your first CWL Workflow document
 
 ## Goal
 
