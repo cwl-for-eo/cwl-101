@@ -77,23 +77,17 @@ Now set:
 - the tool id to `translate` since the CWL document has `$graph` and thus may include several tools 
 - the `baseCommand` to `gdal_translate`, which is the command we want CWL to invoke:
 
-```yaml hl_lines="6 12"
+```yaml hl_lines="5 8"
 cwlVersion: v1.0
 
 $graph:
 - class: CommandLineTool
-  
-  id: translate
-  
+  id: translate  
   requirements: []
-  
   baseCommand: 
   - gdal_translate
-  
   arguments: []
-  
   inputs: {}
-  
   outputs: {}
 ```
 
@@ -103,7 +97,7 @@ Add the `inputs` as type `string`:
 - `bbox`: the area of interest expressed as a bounding box
 - `epsg`: the EPSG code used to express the bounding box coordinates
 
-```yaml
+```yaml hl_lines="11-16"
 cwlVersion: v1.0
 
 $graph:
@@ -126,7 +120,7 @@ $graph:
 Add the `arguments` to complete the `gdal_translate` invocation
 
 
-```yaml
+```yaml hl_lines="9-17"
 cwlVersion: v1.0
 $graph:
 - class: CommandLineTool
@@ -169,7 +163,7 @@ And Javascript expressions, e.g.:
 
 Since this CWL document uses javascript expressions to split the `bbox` parameter and set the cropped tif filename, it needs to declare the CWL `InlineJavascriptRequirement` requirement:
 
-```yaml
+```yaml hl_lines="7"
 cwlVersion: v1.0
 
 $graph:
@@ -201,7 +195,7 @@ $graph:
 
 Add an output of type `File` (the cropped tif) to the `outputs` section:
 
-```yaml
+```yaml hl_lines="28-31"
 cwlVersion: v1.0
 
 $graph:
@@ -237,7 +231,7 @@ $graph:
 
 `gdal_translate` will run in a container so set the CWL `DockerRequirement` and the container image URL by using the `dockerPull` field:
 
-```yaml
+```yaml hl_lines="8-9"
 cwlVersion: v1.0
 
 $graph:
@@ -292,7 +286,7 @@ The CWL runner takes care of mounting the volumes required for the execution.
 
 The next steps includes adding the `Workflow` section to address the loop on the red, green and blue assets. Start by adding the `Workflow` structure:
 
-```yaml
+```yaml hl_lines="4-11"
 cwlVersion: v1.0
 
 $graph:
@@ -340,7 +334,7 @@ $graph:
 
 Add the CWL `Workflow` `inputs`:
 
-```yaml
+```yaml hl_lines="10-19"
 cwlVersion: v1.0
 
 $graph:
@@ -397,7 +391,7 @@ $graph:
 
 Now define the CWL `Workflow` step that will run the `translate` CommandLineTool. For that use the `CommandLineTool` `id` as the `step` `run` value  between double quotes and starting with the hash sign:
 
-```yml
+```yaml hl_lines="20-23"
 $graph:
 - class: Workflow
   id: 
@@ -456,7 +450,7 @@ $graph:
 
 Map the `node_translate` inputs to the `Workflow` inputs. The `asset_ref` input will loop over the `red_channel`, `green_channel` and `blue_channel`. To do so, CWL's `MultipleInputFeatureRequirement` requirement is used and thus added to the `Workflow` requirements: 
 
-```yml
+```yaml hl_lines="7 23-25"
 $graph:
 - class: Workflow
   id: 
@@ -519,7 +513,7 @@ $graph:
 
 The loop over the `red_channel`, `green_channel` and `blue_channel` for `asset_href` uses the CWL requirement `ScatterFeatureRequirement` and it defines the `scatter` parameter and method:
 
-```yml
+```yaml hl_lines="29-30"
 $graph:
 - class: Workflow
   id: 
@@ -585,7 +579,7 @@ $graph:
 
 Set the `node_translate` step output:
 
-```yml
+```yaml hl_lines="27-28"
 $graph:
 - class: Workflow
   id: 
@@ -652,7 +646,7 @@ $graph:
 
 And finally the `Workflow` `outputs`:
 
-```yml
+```yaml hl_lines="21-24"
 $graph:
 - class: Workflow
   id:
@@ -723,7 +717,7 @@ $graph:
 
 Set the `Workflow` `id`, `label` and `doc`:
 
-```yaml
+```yaml hl_lines="5-7"
 cwlVersion: v1.0
 
 $graph:
