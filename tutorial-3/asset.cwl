@@ -29,6 +29,6 @@ outputs:
     outputBinding:
       glob: message
       loadContents: true
-      outputEval: $( self[0].contents ) #.split("\n").join("") )
-
+      outputEval: $( "/vsicurl/" + self[0].contents.replace('"', '').split("\n").join("").replace('"', '') ) 
+      
 cwlVersion: v1.0
