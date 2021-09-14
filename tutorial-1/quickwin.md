@@ -93,7 +93,7 @@ $graph:
 
 Add the `inputs` as type `string`:
 
-- `asset_ref`: the reference to the Landsat-8 COG file 
+- `asset_href`: the reference to the Landsat-8 COG file 
 - `bbox`: the area of interest expressed as a bounding box
 - `epsg`: the EPSG code used to express the bounding box coordinates
 
@@ -448,7 +448,7 @@ $graph:
       type: File
 ```
 
-Map the `node_translate` inputs to the `Workflow` inputs. The `asset_ref` input will loop over the `red_channel`, `green_channel` and `blue_channel`. To do so, CWL's `MultipleInputFeatureRequirement` requirement is used and thus added to the `Workflow` requirements: 
+Map the `node_translate` inputs to the `Workflow` inputs. The `asset_href` input will loop over the `red_channel`, `green_channel` and `blue_channel`. To do so, CWL's `MultipleInputFeatureRequirement` requirement is used and thus added to the `Workflow` requirements: 
 
 ```yaml hl_lines="7 23-25"
 $graph:
@@ -473,7 +473,7 @@ $graph:
   steps: 
     node_translate: 
       in:
-        asset_ref: [red_channel, green_channel, blue_channel]
+        asset_href: [red_channel, green_channel, blue_channel]
         bbox: bbox
         epsg: epsg
       out:
@@ -537,12 +537,12 @@ $graph:
   steps: 
     node_translate: 
       in:
-        asset_ref: [red_channel, green_channel, blue_channel]
+        asset_href: [red_channel, green_channel, blue_channel]
         bbox: bbox
         epsg: epsg
       out:
       run: "#translate"
-      scatter: asset_ref
+      scatter: asset_href
       scatterMethod: dotproduct 
 
 - class: CommandLineTool
@@ -674,13 +674,13 @@ $graph:
   steps: 
     node_translate: 
       in:
-        asset_ref: [red, green, blue]
+        asset_href: [red, green, blue]
         bbox: bbox
         epsg: epsg
       out:
       - tif
       run: "#translate"
-      scatter: asset_ref
+      scatter: asset_href
       scatterMethod: dotproduct 
 
 - class: CommandLineTool
