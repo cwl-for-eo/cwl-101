@@ -513,7 +513,7 @@ $graph:
 
 The loop over the `red_channel`, `green_channel` and `blue_channel` for `asset_href` uses the CWL requirement `ScatterFeatureRequirement` and it defines the `scatter` parameter and method:
 
-```yaml hl_lines="29-30"
+```yaml hl_lines="7 29-30"
 $graph:
 - class: Workflow
   id: 
