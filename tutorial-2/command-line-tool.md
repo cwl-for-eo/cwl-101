@@ -93,7 +93,7 @@ class: CommandLineTool
 
 requirements: 
   DockerRequirement: 
-    dockerPull: osgeo/gdal
+    dockerPull: docker.io/osgeo/gdal
 
 baseCommand: gdal_translate
 
@@ -118,7 +118,7 @@ class: CommandLineTool
 
 requirements: 
   DockerRequirement: 
-    dockerPull: osgeo/gdal
+    dockerPull: docker.io/osgeo/gdal
 
 baseCommand: gdal_translate
 
@@ -149,7 +149,7 @@ class: CommandLineTool
 requirements: 
   InlineJavascriptRequirement: {}
   DockerRequirement: 
-    dockerPull: osgeo/gdal
+    dockerPull: docker.io/osgeo/gdal
 
 baseCommand: gdal_translate
 
@@ -177,7 +177,7 @@ class: CommandLineTool
 requirements: 
   InlineJavascriptRequirement: {}
   DockerRequirement: 
-    dockerPull: osgeo/gdal
+    dockerPull: docker.io/osgeo/gdal
 
 baseCommand: gdal_translate
 
@@ -211,7 +211,7 @@ class: CommandLineTool
 requirements: 
   InlineJavascriptRequirement: {}
   DockerRequirement: 
-    dockerPull: osgeo/gdal
+    dockerPull: docker.io/osgeo/gdal
 
 baseCommand: gdal_translate
 
@@ -250,7 +250,7 @@ class: CommandLineTool
 requirements: 
   InlineJavascriptRequirement: {}
   DockerRequirement: 
-    dockerPull: osgeo/gdal
+    dockerPull: docker.io/osgeo/gdal
 
 baseCommand: gdal_translate
 
@@ -289,7 +289,7 @@ class: CommandLineTool
 requirements: 
   InlineJavascriptRequirement: {}
   DockerRequirement: 
-    dockerPull: osgeo/gdal
+    dockerPull: docker.io/osgeo/gdal
 
 baseCommand: gdal_translate
 
@@ -332,7 +332,7 @@ class: CommandLineTool
 requirements: 
   InlineJavascriptRequirement: {}
   DockerRequirement: 
-    dockerPull: osgeo/gdal
+    dockerPull: docker.io/osgeo/gdal
 
 baseCommand: gdal_translate
 
