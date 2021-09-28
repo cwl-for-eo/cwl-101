@@ -142,7 +142,7 @@ cwlVersion: v1.0
 
 `gdal_translate` uses `-projwin ulx uly lrx lry` to set the area of interest. 
 
-Since our bounding box is expressed as `xmin,ymin,latmin,latmax`, we'll have to manipulate the `bbox` value to format it as expected by `gdal_translate`. 
+Since our bounding box is expressed as `xmin,ymin,xmax,ymax`, we'll have to manipulate the `bbox` value to format it as expected by `gdal_translate` (`xmax,ymin,xmin,ymax`). 
 
 This is easily achieved by using the `InlineJavascriptRequirement` CWL requirement and using Javascript to manipulate the `bbox` input:
 
