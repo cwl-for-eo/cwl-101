@@ -582,7 +582,7 @@ Create a file called `composite-params.yml` with:
 
 ```yaml
 --8<--
-composite-params.yml
+101/cwl-101/tutorial-2/composite-params.yml
 --8<--
 ```
 
