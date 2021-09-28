@@ -99,7 +99,7 @@ cwlVersion: v1.0
 
 ## Workflow requirements
 
-Set the Workflow requirements to support the fan-out pattern. Setting the `ScatterFeatureRequirement` requirement tells the CWL runner to spwan several processes (these may run in parallel).
+Set the Workflow requirements to support the fan-out pattern. Setting the `ScatterFeatureRequirement` requirement tells the CWL runner to spawn several processes (these may run in parallel).
 
 ```yaml hl_lines="7-7"
 class: Workflow
